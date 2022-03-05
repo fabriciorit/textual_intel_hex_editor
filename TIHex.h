@@ -173,15 +173,18 @@ public:
     bool overwrite(const Address &address, uint8_t &data,bool calculateChecksum = true);
 
     /**
-     * @brief Get address entry. Warning: it inserts a new entry if address doesn't exist.
-     * Use contain() to check if address exists.
-     * Inserting addresses may overlap data with previous entries.
-     * Check surrounding data using upperAddress() and lowerAddress() before inserting new entries.
+     * @brief Get address entry.
+     * Use contain() to check if address exists, otherwise it throws an exception.
      *
-     * @param address Address to access entry or to create a new one.
+     * @param address Address to access entry.
      * @return reference to entry.
      */
-    // Entry& operator[](const Address &address){return __entryMap[address];}
+    Entry& operator[](const Address &address){
+        if(!contains(address)){
+            throw "invalid address";
+        }
+        return *__entryMap[address];
+    }
 
     /**
      * @brief Get entry address with a value greater than provided.

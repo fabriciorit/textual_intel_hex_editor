@@ -62,7 +62,7 @@ Current algorithm:
 
 ## Planned features
 In the future, some features may come:
- * Inserting values on command-line. Altough it is already possible in C++ class implementation.
+ * Inserting addresses.
  * Vector overwrite to speed up operations. Today, all overwrites are done byte by byte.
  * Refactoring functions to remove code sections or insert new ones, managing 02,03 and other record types entries.
 
