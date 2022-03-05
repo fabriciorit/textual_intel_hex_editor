@@ -1,7 +1,7 @@
 # Textual Intel HEX Editor Tool
 This code aims to:
  * Edit existing Intel HEX files without changing their regions and functional layout (formatting may be changed).
- * Overwrite data address on specific addresses.
+ * Overwrite data on specific addresses.
 
 Possible uses:
  * Integrate the C++ class TIHex from files TIHex.h and TIHex.cpp in other project.
