@@ -25,14 +25,14 @@ execute_process(
 )
 # Get the latest commit date in a custom format
 execute_process(
-  COMMAND git log -1 --format="%cd" --date=format:"%Y.%m.%d"
+  COMMAND git log -1 --format=%cd --date=format:%Y.%m.%d
   WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
   OUTPUT_VARIABLE GIT_COMMIT_DATE
   OUTPUT_STRIP_TRAILING_WHITESPACE
 )
 # Get the latest commit hash
 execute_process(
-  COMMAND git log -1 --format="%h"
+  COMMAND git log -1 --format=%h
   WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
   OUTPUT_VARIABLE GIT_COMMIT_HASH
   OUTPUT_STRIP_TRAILING_WHITESPACE
