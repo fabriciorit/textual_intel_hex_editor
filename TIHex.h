@@ -122,6 +122,13 @@ public:
     Address currentAddress() { return __addressPointer; }
 
     /**
+     * @brief Check if entry map is empty.
+     *
+     * @return true if it is empty, false otherwise.
+     */
+    bool empty() { return __entryMap.empty(); }
+
+    /**
      * @brief STL iterator. Get end iterator.
      * This indicates the after last entry iterator.
      * Use (--iterator) to get the last entry.
