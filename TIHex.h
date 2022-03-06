@@ -161,6 +161,15 @@ public:
     bool fixChecksum(Entry &entry);
 
     /**
+     * @brief Get value by address. Use overwrite() to set value.
+     * Check error().
+     *
+     * @param address
+     * @return value data.
+     */
+    uint8_t getValue(Address &address);
+
+    /**
      * @brief Get entry address with a value lower than provided.
      * E.g. entry address list = {0x1000,0x1500}, lowerAddress(0x1500) is going to return 0x1000.
      * Check error() to know if it was found.
@@ -180,7 +189,7 @@ public:
     bool overwrite(const Address &address, uint8_t &data,bool calculateChecksum = true);
 
     /**
-     * @brief Get address entry.
+     * @brief Get entry by address.
      * Use contain() to check if address exists, otherwise it throws an exception.
      *
      * @param address Address to access entry.

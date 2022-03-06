@@ -207,6 +207,35 @@ bool TIHex::fixChecksum(Entry &entry) {
   return true;
 }
 
+uint8_t TIHex::getValue(Address address) {
+    auto it = __entryMap.upper_bound(address);
+
+    // Let's choose the right iterator, if it exists.
+    if(it == __entryMap.end()){
+      // Over than last address.
+      if(__entryMap.size()){
+        it--; // Get last entry
+      }
+      else{
+          __error = Error::AddressNotFound;
+          return 0;
+      }
+    }
+    else it--;
+
+    // Checking the offset, if it exists.
+    auto offset = address - it->first;
+    auto& data = it->second->data;
+    if(offset >= data.size())
+    {
+        __error = Error::AddressNotFound;
+        return 0; // There is no data to overwrite.
+    }
+
+    __error = Error::None;
+    return data[offset];
+}
+
 TIHex::Address TIHex::lowerAddress(const Address &address) {
     auto it = __entryMap.lower_bound(address);
     if(it == __entryMap.begin()){
