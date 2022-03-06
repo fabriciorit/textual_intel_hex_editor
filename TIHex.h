@@ -112,7 +112,7 @@ public:
      * @param address
      * @return true when address is present, false otherwise.
      */
-    bool contains(const Address &address);
+    bool contains(const Address address);
 
     /**
      * @brief Address to insert new data.
@@ -167,7 +167,7 @@ public:
      * @param address
      * @return value data.
      */
-    uint8_t getValue(Address &address);
+    uint8_t getValue(Address address);
 
     /**
      * @brief Get entry address with a value lower than provided.
@@ -177,7 +177,7 @@ public:
      * @param address to compare.
      * @return Address lower than provided. If not found, Address minimum value is returned.
      */
-    Address lowerAddress(const Address &address);
+    Address lowerAddress(const Address address);
 
     /**
      * @brief Overwrite data at desired address.
@@ -186,7 +186,7 @@ public:
      * @param data that will be overwritten
      * @return true when overwrite was done. False otherwise.
      */
-    bool overwrite(const Address &address, uint8_t &data,bool calculateChecksum = true);
+    bool overwrite(const Address address, uint8_t &data,bool calculateChecksum = true);
 
     /**
      * @brief Get entry by address.
@@ -195,7 +195,7 @@ public:
      * @param address Address to access entry.
      * @return reference to entry.
      */
-    Entry& operator[](const Address &address){
+    Entry& operator[](const Address address){
         if(!contains(address)){
             throw "invalid address";
         }
@@ -210,7 +210,7 @@ public:
      * @param address to compare.
      * @return Address greater than provided. If not found, Address maximum value is returned.
      */
-    Address upperAddress(const Address &address);
+    Address upperAddress(const Address address);
 
 private:
     /* __entryMap stores all references to entries, according to each header's address */

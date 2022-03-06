@@ -155,7 +155,7 @@ bool TIHex::append(const std::string &line) {
   return true;
 }
 
-bool TIHex::contains(const Address &address){
+bool TIHex::contains(const Address address){
     try
     {
         __entryMap.at(address);
@@ -236,7 +236,7 @@ uint8_t TIHex::getValue(Address address) {
     return data[offset];
 }
 
-TIHex::Address TIHex::lowerAddress(const Address &address) {
+TIHex::Address TIHex::lowerAddress(const Address address) {
     auto it = __entryMap.lower_bound(address);
     if(it == __entryMap.begin()){
       __error = Error::LowerAddressNotFound;
@@ -247,7 +247,7 @@ TIHex::Address TIHex::lowerAddress(const Address &address) {
     return it->first;
 }
 
-bool TIHex::overwrite(const Address &address, uint8_t &byte,bool calculateChecksum){
+bool TIHex::overwrite(const Address address, uint8_t &byte, bool calculateChecksum){
   auto it = __entryMap.upper_bound(address);
 
   // Let's choose the right iterator, if it exists.
@@ -272,7 +272,7 @@ bool TIHex::overwrite(const Address &address, uint8_t &byte,bool calculateChecks
   return true;
 }
 
-TIHex::Address TIHex::upperAddress(const Address &address) {
+TIHex::Address TIHex::upperAddress(const Address address) {
     auto it = __entryMap.upper_bound(address);
     if(it == __entryMap.end()){
       __error = Error::UpperAddressNotFound;
