@@ -102,6 +102,7 @@ public:
     void clear()
     {
         __addressPointer = 0;
+        __programCounter = 0;
         __entryMap.clear();
         __entryList.clear();
     }
@@ -203,6 +204,12 @@ public:
     }
 
     /**
+     * @brief Get program size. Includes all data entries, i.e. only recordType equals to 0x00.
+     * @return program size.
+     */
+    uint64_t programSize(){return __programCounter;}
+
+    /**
      * @brief Get entries size. Includes all non-data entries, i.e. recordType different from 0x00.
      * @return entries list size.
      */
@@ -227,6 +234,7 @@ private:
 
     Error __error;
     Address __addressPointer = 0;
+    uint64_t __programCounter = 0;
 };
 
 #endif

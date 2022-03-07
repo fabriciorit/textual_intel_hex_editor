@@ -79,6 +79,7 @@ bool TIHex::append(const std::string &line) {
     __error = Error::InvalidDataSize;
     return false;
   }
+  uint64_t newProgramCounter = __programCounter;
   entry.data.reserve(dataByteCount); // Preallocate memory.
   for(int i=0; i<dataStr.size(); i+=2)
   {
@@ -93,6 +94,7 @@ bool TIHex::append(const std::string &line) {
       return false;
     }
     entry.data.push_back(value);
+    newProgramCounter++;
   }
 
   std::string checksumStr = line.substr(p,2); p+=2;
@@ -150,6 +152,7 @@ bool TIHex::append(const std::string &line) {
       return false;
     }
   }
+  if(entry.recordType == 0x00) __programCounter = newProgramCounter;
   __addressPointer = newAddressPointer;
   __error = Error::None;
   return true;
