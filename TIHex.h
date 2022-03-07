@@ -203,6 +203,12 @@ public:
     }
 
     /**
+     * @brief Get entries size. Includes all non-data entries, i.e. recordType different from 0x00.
+     * @return entries list size.
+     */
+    uint64_t size(){return __entryList.size();}
+
+    /**
      * @brief Get entry address with a value greater than provided.
      * E.g. entry address list = {0x1000,0x1500}, upperAddress(0x1000) is going to return 0x1500.
      * Check error() to know if it was found.
