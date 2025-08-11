@@ -68,7 +68,7 @@ In the future, some features may come:
 
 ## Pay me a coffee
 If this work is useful to you and you want to thank me, donate on:
- * PIX, for brazilian people, the key is: 33b8f53f-f352-4693-9396-7fdc12cb8ba4
+ * PIX, for brazilian people, the key is: fabriciotoloczko@gmail.com
  * Paypal: https://www.paypal.com/donate/?business=4DQWHREP7WNLE&no_recurring=1&item_name=Textual+Intel+HEX+Editor%0Ahttps%3A%2F%2Fgithub.com%2Ffabriciorit%2Ftextual_intel_hex_editor&currency_code=USD
  * Bitcoin: 3LudYaDadgsSBxJfsR8unGrNRxgPa7H6Es
  * Ethereum: 0x73b324300db3de90046cf7039fd3918e0fe37bc6
